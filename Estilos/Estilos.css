@@ -1,0 +1,141 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('images/fondo-marmol.png'); /* Imagen de fondo */
+    background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f8f8f8; /* Cambia esto al color de fondo que prefieras */
+}
+
+/* Estilos para el logo */
+.logo {
+    display: flex;
+    align-items: center; /* Alinea verticalmente */
+    margin: 2cm; /* Espacio alrededor del logo */
+}
+
+.logo img {
+    width: 2cm; /* Ajusta el ancho a 2 cm */
+    height: 2cm; /* Ajusta el alto a 2 cm */
+    margin-right: 10px; /* Espacio entre la imagen y el texto */
+}
+
+/* Parte derecha del encabezado */
+.header-right {
+    display: flex;
+    align-items: center; /* Alinea verticalmente */
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+}
+
+.search-bar button {
+    padding: 5px 10px;
+    background-color: #6200ee;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+nav {
+    display: flex; /* Usamos flexbox para alinear elementos */
+    gap: 20px; /* Espacio entre los enlaces */
+}
+nav a {
+    text-decoration: none; /* Quitar subrayado */
+    color: #6200ee; /* Color del texto */
+    font-weight: bold; /* Peso del texto */
+    padding: 5px 10px; /* Espaciado interno alrededor de los enlaces */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s; /* Efecto de transición para hover */
+}
+
+nav a:hover {
+    background-color: #e0e0e0; /* Color de fondo al pasar el mouse */
+}
+
+/* Contenedor principal */
+.main-container {
+    display: flex;
+    margin: 20px;
+}
+
+/* Barra lateral */
+.sidebar {
+    width: 200px;
+}
+
+.sidebar img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Panel de Control */
+.panel-control {
+    flex-grow: 1;
+    padding-left: 20px;
+}
+
+.panel-control h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    text-align: center; /* Centra el texto */
+    padding: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    width: 60px;
+    height: 60px;
+    display: block; /* Hace que la imagen se comporte como un bloque */
+    margin: 0 auto 10px; /* Centra la imagen y deja espacio debajo */
+}
+
+
+.card a {
+    text-decoration: none;
+    color: #6200ee;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f1f1f1;
+    margin-top: 20px;
+}
+.role-display {
+    margin-left: 20px; /* Espacio entre el buscador y el texto del rol */
+    font-size: 16px; /* Tamaño de la fuente */
+    color: #333; /* Color del texto */
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargar Catálogo - Evole Crochet</title>
+    <link rel="stylesheet" href="Estilos/Estilos.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="Evole Crochet Logo">
+            <h1>Evole Crochet - Weave Your Dreams</h1>
+        </div>
+        <div class="header-right">
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar...">
+                <button>Buscar</button>
+            </div>
+            <div class="role">
+                Tu rol es: <strong>Administrador</strong>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav-bottom">
+        <nav>
+            <a href="###">Mi cuenta</a>
+            <a href="index.html" id="menu-toggle">Menú</a> <!-- Redirige al índice -->
+        </nav>
+    </nav>
+
+    <!-- Cargar Catálogo -->
+    <div class="main-container">
+        <aside class="sidebar">
+            <img src="images/girasol.png" alt="Girasol de crochet">
+            <img src="images/ramo.png" alt="Flor roja de crochet">
+        </aside>
+
+        <section class="panel-control">
+            <h2>Cargar Nuevo Producto al Catálogo</h2>
+
+            <!-- Formulario para cargar productos -->
+            <form action="#" method="POST" enctype="multipart/form-data">
+                <!-- Producto 1 -->
+                <div class="product-upload">
+                    <h3>Producto 1</h3>
+                    <label for="image1">Imagen del producto:</label>
+                    <input type="file" id="images/llavero.png" name="image1" accept="image/*" required>
+                    
+                    <label for="name1">Nombre del producto:</label>
+                    <input type="text" id="name1" name="name1" placeholder="Nombre del producto" required>
+                    
+                    <label for="description1">Descripción del producto:</label>
+                    <textarea id="description1" name="description1" rows="3" placeholder="Descripción" required></textarea>
+
+                    <label for="price1">Valor del producto:</label>
+                    <input type="number" id="price1" name="price1" placeholder="Valor en USD" required>
+                </div>
+
+                <!-- Producto 2 -->
+                <div class="product-upload">
+                    <h3>Producto 2</h3>
+                    <label for="image2">Imagen del producto:</label>
+                    <input type="file" id="image2" name="image2" accept="image/*" required>
+                    
+                    <label for="name2">Nombre del producto:</label>
+                    <input type="text" id="name2" name="name2" placeholder="Nombre del producto" required>
+                    
+                    <label for="description2">Descripción del producto:</label>
+                    <textarea id="description2" name="description2" rows="3" placeholder="Descripción" required></textarea>
+
+                    <label for="price2">Valor del producto:</label>
+                    <input type="number" id="price2" name="price2" placeholder="Valor en USD" required>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="product-upload">
+                    <h3>Producto 3</h3>
+                    <label for="image3">Imagen del producto:</label>
+                    <input type="file" id="image3" name="image3" accept="image/*" required>
+                    
+                    <label for="name3">Nombre del producto:</label>
+                    <input type="text" id="name3" name="name3" placeholder="Nombre del producto" required>
+                    
+                    <label for="description3">Descripción del producto:</label>
+                    <textarea id="description3" name="description3" rows="3" placeholder="Descripción" required></textarea>
+
+                    <label for="price3">Valor del producto:</label>
+                    <input type="number" id="price3" name="price3" placeholder="Valor en USD" required>
+                </div>
+
+                <button type="submit">Cargar Productos</button>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <p>Comunicate con nosotros <strong>al Whatsapp</strong></p>
+    </footer>
+
+    <script src="js/Menu.js"></script>
+</body>
+</html>  

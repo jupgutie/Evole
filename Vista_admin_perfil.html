@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control - Evole Crochet</title>
+    <link rel="stylesheet" href="Estilos/Estilos.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="Evole Crochet Logo">
+            <h1>Evole Crochet - Weave Your Dreams</h1>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar...">
+            <button>Buscar</button>
+            <nav>
+                <a href="#">Mi cuenta</a>
+                <a href="#" id="menu-toggle">Menú</a>
+            </nav>
+        </div>
+        <div class="role-display">
+            Tu rol es: <strong>Administrador</strong>
+        </div>
+    </header>
+
+    <!-- Panel de Control -->
+    <div class="main-container">
+        <aside class="sidebar">
+            <img src="images/girasol.png" alt="Girasol de crochet">
+            <img src="images/ramo.png" alt="Flor roja de crochet">
+        </aside>
+
+        <section class="panel-control">
+            <h2>Panel de Control</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <img src="images/cargar catalogo.png" alt="Cargar Catálogo">
+                    <a href="Cargar_Nuevos_Productos.html">Cargar Catálogo</a> <!-- Cambiado a la nueva página -->
+                </div>
+                <div class="card">
+                    <img src="images/administrar usuarios.png" alt="Administrar Usuarios">
+                    <a href="#">Administrar Usuarios</a>
+                </div>
+                <div class="card">
+                    <img src="images/facturacion.png" alt="Facturación">
+                    <a href="#">Facturación</a>
+                </div>
+                <div class="card">
+                    <img src="images/informes.png" alt="Informes">
+                    <a href="#">Informes</a>
+                </div>
+                <div class="card">
+                    <img src="images/cambiar mi clave.png" alt="Cambiar Clave">
+                    <a href="#">Cambiar mi Clave</a>
+                </div>
+                <div class="card">
+                    <img src="images/pedidos.png" alt="Pedidos">
+                    <a href="#">Pedidos</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Evole Crochet</p>
+    </footer>
+
+    <script src="js/Menu.js"></script>
+</body>
+</html>
