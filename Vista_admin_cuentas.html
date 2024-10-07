@@ -12,7 +12,7 @@
     <div class="sidebar">
         <button class="menu-btn">☰</button>
         <div class="icon-container">
-            <img src="imagenes/nuevo.png" alt="Icono 3" class="sidebar-icon">
+            <img src="imagenes/nuevo.png" alt="Agregar nueva cuenta" class="sidebar-icon" id="nuevo-usuario-btn">
         </div>
     </div>
 
@@ -21,8 +21,7 @@
         <a href="javascript:history.back()" class="back-arrow">&#8592;</a>
         <h2>Control de usuarios</h2>
         <div class="header-icons">
-            <img src="imagenes/basura.png" alt="Icono 1" class="header-icon">
-            <img src="imagenes/anadir-al-carrito.png" alt="Icono 2" class="header-icon">
+            <img src="imagenes/basura.png" alt="Eliminar cuenta seleccionada" class="header-icon" id="eliminar-usuario-btn">
             <img src="imagenes/nuevo.png" alt="Icono 3" class="header-icon">
         </div>
     </header>
@@ -30,7 +29,7 @@
     <!-- Lista de usuarios registrados -->
     <section class="usuarios-registrados">
         <h3 class="titulo">Usuarios registrados</h3>
-        <ul class="lista-usuarios">
+        <ul class="lista-usuarios" id="lista-usuarios">
             <li>
                 <img src="imagenes/gato.png" alt="Usuario 1" class="img-usuario">
                 Juan Pérez
@@ -53,6 +52,65 @@
             </li>
         </ul>
     </section>
+
+    <script>
+        const listaUsuarios = document.getElementById('lista-usuarios');
+        let usuarioSeleccionado = null;
+
+        // Función para agregar un nuevo usuario
+        function agregarNuevoUsuario() {
+            const nuevoUsuario = document.createElement('li');
+            const nuevaImagen = document.createElement('img');
+            nuevaImagen.src = 'imagenes/gato.png';
+            nuevaImagen.alt = 'Nuevo Usuario';
+            nuevaImagen.classList.add('img-usuario');
+            const nuevoTexto = document.createTextNode(' Nuevo Usuario');
+            nuevoUsuario.appendChild(nuevaImagen);
+            nuevoUsuario.appendChild(nuevoTexto);
+
+            // Agregar evento para seleccionar el usuario al hacer clic
+            nuevoUsuario.addEventListener('click', function () {
+                seleccionarUsuario(nuevoUsuario);
+            });
+
+            listaUsuarios.appendChild(nuevoUsuario);
+        }
+
+        // Función para seleccionar un usuario
+        function seleccionarUsuario(usuario) {
+            if (usuarioSeleccionado) {
+                // Remover la clase 'seleccionado' del usuario anterior
+                usuarioSeleccionado.classList.remove('seleccionado');
+            }
+
+            // Marcar el nuevo usuario como seleccionado
+            usuarioSeleccionado = usuario;
+            usuarioSeleccionado.classList.add('seleccionado');
+        }
+
+        // Función para eliminar el usuario seleccionado
+        function eliminarUsuarioSeleccionado() {
+            if (usuarioSeleccionado) {
+                listaUsuarios.removeChild(usuarioSeleccionado);
+                usuarioSeleccionado = null; // Resetear la selección
+            } else {
+                alert('Por favor selecciona un usuario para eliminar.');
+            }
+        }
+
+        // Añadir evento al botón para agregar un nuevo usuario
+        document.getElementById('nuevo-usuario-btn').addEventListener('click', agregarNuevoUsuario);
+
+        // Añadir evento al botón de eliminar usuario
+        document.getElementById('eliminar-usuario-btn').addEventListener('click', eliminarUsuarioSeleccionado);
+
+        // Añadir evento para seleccionar a los usuarios actuales
+        document.querySelectorAll('.lista-usuarios li').forEach(function (usuario) {
+            usuario.addEventListener('click', function () {
+                seleccionarUsuario(usuario);
+            });
+        });
+    </script>
 
 </body>
 </html>

@@ -24,6 +24,27 @@ body {
     z-index: 10; 
 }
 
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: #ca9cf5;
+    border: 1px solid #f7b0ed;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+.logout-btn {
+    text-decoration: none;
+    color: #333;
+}
+
+.logout-btn:hover {
+    color: #ff0000; /* Color al pasar el ratón por encima */
+}
+
 .menu-btn {
     background: none;
     border: none;
