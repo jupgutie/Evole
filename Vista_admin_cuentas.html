@@ -5,6 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Control de cuentas</title>
     <link rel="stylesheet" href="Estilos/styleVAC.css">
+    <style>
+        /* Estilos para el menú flotante */
+        .modal {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            z-index: 1000; /
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); 
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .modal h4 {
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+
+        .modal button {
+            margin: 10px 0;
+            padding: 10px 20px;
+            width: 100%;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .modal button:hover {
+            background-color: #0056b3;
+        }
+
+        .close-btn {
+            background-color: #DC3545;
+        }
+
+        .close-btn:hover {
+            background-color: #c82333;
+        }
+    </style>
 </head>
 <body>
 
@@ -53,11 +106,41 @@
         </ul>
     </section>
 
+    <!--  opciones de usuario -->
+    <div id="opciones-usuario-modal" class="modal">
+        <div class="modal-content">
+            <h4>Opciones de usuario</h4>
+            <button id="configuracion-btn">Configuración de la cuenta</button>
+            <button id="comprar-btn">Ir a comprar</button>
+            <button class="close-btn" id="cerrar-modal-btn">Cerrar</button>
+        </div>
+    </div>
+
     <script>
         const listaUsuarios = document.getElementById('lista-usuarios');
+        const modal = document.getElementById('opciones-usuario-modal');
+        const configuracionBtn = document.getElementById('configuracion-btn');
+        const comprarBtn = document.getElementById('comprar-btn');
+        const cerrarModalBtn = document.getElementById('cerrar-modal-btn');
         let usuarioSeleccionado = null;
 
-        // Función para agregar un nuevo usuario
+        // seleccionar un usuario
+        function seleccionarUsuario(usuario) {
+            if (usuarioSeleccionado) {
+                usuarioSeleccionado.classList.remove('seleccionado');
+            }
+
+            usuarioSeleccionado = usuario;
+            usuarioSeleccionado.classList.add('seleccionado');
+            modal.style.display = 'flex'; 
+        }
+
+        
+        cerrarModalBtn.addEventListener('click', function () {
+            modal.style.display = 'none';
+        });
+
+       
         function agregarNuevoUsuario() {
             const nuevoUsuario = document.createElement('li');
             const nuevaImagen = document.createElement('img');
@@ -68,7 +151,6 @@
             nuevoUsuario.appendChild(nuevaImagen);
             nuevoUsuario.appendChild(nuevoTexto);
 
-            // Agregar evento para seleccionar el usuario al hacer clic
             nuevoUsuario.addEventListener('click', function () {
                 seleccionarUsuario(nuevoUsuario);
             });
@@ -76,35 +158,24 @@
             listaUsuarios.appendChild(nuevoUsuario);
         }
 
-        // Función para seleccionar un usuario
-        function seleccionarUsuario(usuario) {
+        // Redirigir a configuración de la cuenta
+        configuracionBtn.addEventListener('click', function () {
             if (usuarioSeleccionado) {
-                // Remover la clase 'seleccionado' del usuario anterior
-                usuarioSeleccionado.classList.remove('seleccionado');
+                window.location.href = 'Vista_admin_perfil.html';
             }
+        });
 
-            // Marcar el nuevo usuario como seleccionado
-            usuarioSeleccionado = usuario;
-            usuarioSeleccionado.classList.add('seleccionado');
-        }
-
-        // Función para eliminar el usuario seleccionado
-        function eliminarUsuarioSeleccionado() {
+        // Redirigir a la página de compras
+        comprarBtn.addEventListener('click', function () {
             if (usuarioSeleccionado) {
-                listaUsuarios.removeChild(usuarioSeleccionado);
-                usuarioSeleccionado = null; // Resetear la selección
-            } else {
-                alert('Por favor selecciona un usuario para eliminar.');
+                window.location.href = 'Categorias.html';
             }
-        }
+        });
 
-        // Añadir evento al botón para agregar un nuevo usuario
+        // Evento para agregar un nuevo usuario
         document.getElementById('nuevo-usuario-btn').addEventListener('click', agregarNuevoUsuario);
 
-        // Añadir evento al botón de eliminar usuario
-        document.getElementById('eliminar-usuario-btn').addEventListener('click', eliminarUsuarioSeleccionado);
-
-        // Añadir evento para seleccionar a los usuarios actuales
+        // Añadir eventos a los usuarios existentes para seleccionarlos
         document.querySelectorAll('.lista-usuarios li').forEach(function (usuario) {
             usuario.addEventListener('click', function () {
                 seleccionarUsuario(usuario);
